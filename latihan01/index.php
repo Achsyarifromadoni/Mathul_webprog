@@ -6,7 +6,7 @@
     $nama2 = "Syarif";
     echo $nama." ".$nama2;
     // atau
-    // echo ($nama) ($nama2);
+    // echo ($nama) ($nama2)nnnn;
 
     $nilaiquis  = 60;
     $nilaitugas = 70;
