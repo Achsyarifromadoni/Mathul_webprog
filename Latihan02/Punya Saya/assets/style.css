@@ -1,0 +1,177 @@
+body {
+    margin: 0px;
+}
+
+.navbar {
+    background-color: rgb(40, 3, 173);
+}
+
+.navbar-brand {
+    margin-left: 30px;
+}
+
+#navbarSupportedContent {
+    margin-right: 42px;
+}
+
+header>img {
+    width: 250px;
+}
+
+img {
+    width: 200px;
+}
+
+.about_me {
+    padding: 3px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.about_me>h2 {
+    color: rgb(84, 74, 230);
+}
+
+.my_blog {
+    background-color: rgb(100, 149, 255);
+    padding: 10px;
+}
+
+.my_blog>h3 {
+    text-align: center;
+    color: white;
+}
+
+.year {
+    background-color: blue;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 4px;
+}
+
+.created {
+    color: cadetblue;
+}
+
+.contact_us {
+    background-color: rgb(64, 89, 197);
+    padding: 5px;
+}
+
+.contact_us>h3 {
+    text-align: center;
+    color: white;
+}
+
+.form {
+    width: 350px;
+}
+
+.detailblog {
+    background-color: rgb(82, 161, 226);
+}
+
+.blog {
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+.detailblog1>h2 {
+    text-align: center;
+}
+
+.detailblog2>h2 {
+    text-align: center;
+}
+
+.resume {
+    background-color: rgb(82, 161, 226);
+}
+
+.p {
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.p-intro {
+    background-color: rgb(82, 161, 226);
+    color: rgb(0, 0, 0);
+}
+
+.p-intro>img {
+    width: 10em;
+    border-radius: 10px;
+    border: 5px solid;
+    border-color: rgb(42, 3, 134);
+    margin-top: 10px;
+    margin-left: 35px;
+}
+
+.p-intro>h4 {
+    margin-top: 10px;
+}
+
+.p-content {
+    background-color: rgb(82, 161, 226);
+}
+
+.p-content>h1 {
+    text-align: left;
+}
+
+.p-natnat {
+    text-align: right;
+}
+
+.menu {
+    margin-right: 10px;
+}
+
+.menu>a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu>a:active {
+    transition: all 1;
+    color: white;
+}
+
+.menu>div>a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    background-color: rgb(82, 161, 226);
+    color: white;
+}
+
+.footer>p>a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer>a {
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .detailblog1>video {
+        width: 300px;
+    }
+    .detailblog2>video {
+        width: 300px;
+    }
+}
+
+.detailblog2>video {
+    width: 700px;
+}
+
+.detailblog1>video {
+    width: 700px;
+}

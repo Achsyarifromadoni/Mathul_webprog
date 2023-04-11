@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume</title>
+    <link rel="stylesheet" href="assets/bootstrap5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  </head>
+  <body>
+    <div class="container bg-danger bg-opacity-25 mt-3 mb-3">
+      <div class="row">
+        <div class="col-3 p-3">
+          <img src="assets/images/fotoprofil.jpg" width="300" class="rounded-circle img-thumbnail text-center" alt="" srcset="" />
+
+          <h3 class="pt-3 pb-2 border-bottom border-1 border-danger">CONTACT</h3>
+          <div class="ps-2 pt-2">
+            <p><i class="bi bi-telephone-fill fw-bold"></i> 081-339-364-971</p>
+            <p><i class="bi bi-envelope-fill"></i> aninur.h@gmail.com</p>
+            <p>
+              <i class="bi bi-linkedin"></i>
+              <a href="https://www.linkedin.com/in/ani-nur-hidayati" target="_blank" rel="noopener noreferrer"> linkedin.com/in/ani-nur-hidayati </a>
+            </p>
+            <p><i class="bi bi-broadcast-pin"></i> Sidoarjo, JawaTimur</p>
+
+            <h3 class="pt-3 pb-2 border-bottom border-1 border-danger">SKILLS</h3>
+            <div class="ps-2 pt-2">
+              <ul>
+                <li>PHP, Framework CI</li>
+                <li>Javascript/Jquery</li>
+                <li>HTML, CSS, Bootstrap Framework</li>
+                <li>VB .NET, Java</li>
+                <li>Database : MySQL, SQL Server</li>
+				<li>Bahasa : Inggris, Indonesia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-9 bg-danger bg-opacity-50 p-5 text-white fs-5">
+          <h1 class="text-center font2">Ani Nur Hidayati</h1>
+          <p>Saya adalah orang yang suka Belajar Hal Baru dan Cepat Dalam Memperlajarinya, Disiplin, TanggungJawab 
+			  dan Pekerja Keras, serta Dapat Bekerja Sama Dalam Tim... ( CERITAKAN KEMAMPUAN SOFT SKILLS KALIAN )
+			</p>
+			<h3 class="pt-3 pb-2 border-bottom border-1 border-danger">PENDIDIKAN</h3>
+			<p>
+				<ul>
+					<li>a>LINK 1</li>
+					<li>a>LINK 2</li>
+					<li>a>LINK 3</li>
+				</ul>
+			</p>
+			<h3 class="pt-3 pb-2 border-bottom border-1 border-danger">PENGALAMAN MAGANG / ORGANISASI</h3>
+			<p>
+				<ul>
+					<li>a>LINK 1</li>
+					<li>a>LINK 2</li>
+					<li>a>LINK 3</li>
+				</ul>
+			</p>
+			<h3 class="pt-3 pb-2 border-bottom border-1 border-danger">SERTIFIKAT PELATIHAN (jika ada)</h3>
+			<p>
+				<ul>
+					<li>a>LINK 1</li>
+					<li>a>LINK 2</li>
+					<li>a>LINK 3</li>
+				</ul>
+			</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
