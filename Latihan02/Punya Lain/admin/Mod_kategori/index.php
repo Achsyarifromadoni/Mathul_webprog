@@ -16,7 +16,7 @@
             <div class="col-md-2">
 
             </div>
-            <div class="col-md mt-3">
+            <div class="col-md mt-4">
                 <a href="?modul=mod_kategori&aksi=add"  class="btn btn-primary btn-sm btn-xs mb-1">Tambah Data</a>
 
                 
@@ -81,13 +81,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"> -->
 
 <form action="mod_kategori/proses.php?proses=<?php echo $exproses; ?>" method="post">
-<div class="container-fluid">
+<div class="container">
         <div class="row">
             
-            <div class="col-md-mb-4 row">
-            <font face = "Comic sans MS" size =" 5" style="margin-left: 100px;">From Input Data</font>
+            <div class="col-md-mb-5 row">
+            <font face = "Comic sans MS" size =" 5" style="margin-left: 90px;">From Input Data</font>
                 <div class="mb-4 row">
-                    <label for="inputPassword" class="col-sm-4 col-form-label">Nama Kategori</label>
+                    <label for="inputPassword" style="margin-left: 30px;" class="col-sm-3 col-form-label">Nama Kategori</label>
+                    
                     <div class="col-sm-6">
                         
                         <input type="hidden" name="txt_id" id="txt_id" value="<?php echo $idnya; ?>">
@@ -98,9 +99,11 @@
                         <button class="btn btn-secondary" type="reset"><i class="bi bi-x-lg"> Batal</i></button>
                         <button class="btn btn-primary" type="submit"><i class="bi bi-save"> Simpan</i></button>
                     </div>
-                </div>            
+                            
             </div>
             <div class="col-md-2">
+            </div>
+
             </div>
         </div>
     </div>

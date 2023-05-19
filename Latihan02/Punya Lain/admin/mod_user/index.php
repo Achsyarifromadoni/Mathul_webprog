@@ -36,7 +36,7 @@
                         <td><?php echo $row['username']?></td>
                         <td><?php echo $row['passwordd']?></td>
                         <td> 
-                            <a href="?modul=mod_user&aksi=edit&id=<?php echo $row['iduser']?>"><button class="btn btn-primary" type="submit"><i class="bi bi-pencil-saquare">Edit</i></button></a>
+                            <a href="?modul=mod_user&aksi=edit&id=<?php echo $row['iduser']?>"><button class="btn btn-primary" type="button"><i class="bi bi-pencil-saquare">Edit</i></button></a>
                             <a href="mod_user/proses.php?proses=delete&id=<?php echo $row['iduser']?>"><button class="btn btn-primary" type="submit"><i class="bi bi-x-lg">Delete</i></button></a>
                         </td>
                     </tr>
@@ -106,7 +106,7 @@
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                     <label class="form-check-label" for="flexCheckChecked">Active</label>
                 </div>
-                <button class="btn btn-secondary" type="submit"><i class="bi bi-x-lg"> Batal</i></button>
+                <button class="btn btn-secondary" type="reset"><i class="bi bi-x-lg"> Batal</i></button>
                 <button class="btn btn-primary" type="submit"><i class="bi bi-save"> Simpan</i></button>            
             </div>
             <div class="col-md-2"></div>

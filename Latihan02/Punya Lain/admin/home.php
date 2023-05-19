@@ -23,30 +23,30 @@ require_once("../koneksidb.php")
         <div class="col-md-4">
     
     
-        <div class="mb-2 row">
-          <div class="col-md-4"><a href="?modul=Mod_kategori">Data Kategori</a></div>
-        </div>
-        <div class="dropdown-divider"></div>
+          <div class="mb-2 row">
+            <div class="col-md-4"><a href="?modul=Mod_kategori">Data Kategori</a></div>
+          </div>
+          <div class="dropdown-divider"></div>
 
-        <div class="mb-2 row">
-          <div class="col-md-4"><a href="?modul=Mod_blog">Data Artikel</a></div>
-        </div>
-        <div class="dropdown-divider"></div>
+          <div class="mb-2 row">
+            <div class="col-md-4"><a href="?modul=Mod_blog">Data Blog</a></div>
+          </div>
+          <div class="dropdown-divider"></div>
 
-        <div class="mb-2 row">
-          <div class="col-md-4"><a href="?modul=Mod_user">Data User</a></div>
-        </div>
-        <div class="dropdown-divider"></div>
+          <div class="mb-2 row">
+            <div class="col-md-4"><a href="?modul=Mod_user">Data User</a></div>
+          </div>
+          <div class="dropdown-divider"></div>
 
-        <div class="mb-2 row">
-          <div class="col-md-4"><a href="">Data Menu</a></div>
-        </div>
-        <div class="dropdown-divider"></div>
+          <div class="mb-2 row">
+            <div class="col-md-4"><a href="">Data Menu</a></div>
+          </div>
+          <div class="dropdown-divider"></div>
 
         </div>
        
           
-        <div class="col">
+        <div class="col-md-7">
 
         <?php
         if(isset($_GET["modul"])){
@@ -54,62 +54,62 @@ require_once("../koneksidb.php")
         }
         ?>
 
-            <div class="mb-2 row">
-          <!-- <div class="col-md-4">Invoice</div>
+            <!-- <div class="mb-4 row">
+         <div class="col-md-4">Invoice</div>
           <div class="col-md-6">
               <input id="Invoice" class="form-control" type="text" placeholder="kode" aria-label="" readonly> -->
-          </div>
+          <!-- </div> -->
          
           <div class="dropdown-divider"></div>
           
-          <div class="mb-2 row">
+          <div class="mb-4 row">
             <!-- <div class="col-md-4">Kode</div>
             <div class="col-md-6">
                 <input id="istilah" class="form-control" type="text" placeholder="Text" aria-label="default input example"> -->
-            </div>
+            <!-- </div> -->
           </div>
 
-          <div class="mb-2 row">
+          <div class="mb-4 row">
             <!-- <div class="col-md-4">Nama</div>
             <div class="col-md-6">
                 <input id="istilah" class="form-control" type="text" placeholder="Text" aria-label="default input example"> -->
-            </div>
+            <!-- </div> -->
           </div>
 
-          <div class="mb-2 row">
+          <div class="mb-4 row">
             <!-- <div class="col-md-4">Jenis</div>
             <div class="col-md-6">
                 <input id="istilah" class="form-control" type="text" placeholder="Text" aria-label="default input example"> -->
-            </div>
+            <!-- </div> -->
           </div>
 
-          <div class="mb-2 row">
+          <div class="mb-4 row">
             <!-- <div class="col-md-4">Jumlah Beli</div>
             <div class="col-md-6">
                 <input id="istilah" class="form-control" type="text" placeholder="Text" aria-label="default input example"> -->
-            </div>
+            <!-- </div> -->
           </div>
 
-          <div class="mb-2 row">
+          <div class="mb-4 row">
             <!-- <div class="col-md-4">Diskon</div>
             <div class="col-md-6">
                 <input id="istilah" class="form-control" type="text" placeholder="Text" aria-label="default input example"> -->
-            </div>
+            <!-- </div> -->
           </div>
 
-          <div class="mb-2 row">
+          <div class="mb-4 row">
             <!-- <div class="col-md-4">Total Bayar</div>
             <div class="col-md-6">
                 <input id="istilah" class="form-control" type="text" placeholder="Text" aria-label="default input example"> -->
-            </div>
+            <!-- </div> -->
           </div>
 
-          <div class="mb-2 row">
+          <div class="mb-4 row">
             <!-- <div class="col-md-4">Pembayaran</div>
             <div class="col-md-6">
                 <input id="istilah" class="form-control" type="text" placeholder="Text" aria-label="default input example"> -->
             </div>
-          </div>
+          <!-- </div> --> 
 
 
         </div>
