@@ -37,6 +37,13 @@ else if ($_GET['proses'] == "update"){
     "UPDATE mst_kategori SET nm_kategori='$namakategori'
     WHERE id_kategori=$idkategori")
     or die ("gagal update" .mysqli_error($koneksidb));
+
+    if (isset($_POST['isachtive'])){
+        $aktif = 1;
+    }
+    else{
+        $aktif = 0;
+    }
     
     
 

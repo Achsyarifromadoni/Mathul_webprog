@@ -64,6 +64,7 @@
             $data = mysqli_fetch_array($query);
             // echo $data['nm_kategori'];
             $nama = $data['nm_kategori'];
+            $idnya = $_GET['id'];
             $exproses = "update";
         }
         else if($_GET['aksi'] == "add"){

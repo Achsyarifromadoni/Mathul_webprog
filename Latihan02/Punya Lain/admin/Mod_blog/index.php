@@ -139,7 +139,8 @@
                 <div>
                 <div class="col-sm-7">
                 <label>Active</label>
-                    <input type="checkbox" name = "isachtive">
+                    <input type="datetime-local" name="tanggal" id="mdate" value="<?= $tglnya ?>">
+                    <input type="checkbox" name = "isachtive" id=""<?php if($isaktif == 1){ echo "checked"; } ?>>
                     </div>
                 </div>
                 <hr>
