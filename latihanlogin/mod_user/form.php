@@ -21,7 +21,7 @@ if($_GET['aksi']== "tambah"){
 		</div>
 		<div class="col">
 			<label for="txt_pasw2">Ulangi Password</label>
-			<input type="password" name="txt_pasw2" id="txt_pasw2" onchange="" />
+			<input type="password" name="txt_pasw2" id="txt_pasw2"/>
 		</div>
 		<div class="col">
 			<button type="submit" id="btnsimpanuser">Simpan Data</button>
@@ -41,7 +41,7 @@ if($_GET['aksi']== "ubah"){
 <!-- ubah data -->
 <div class="container">
 	<h2>Ubah Data</h2>
-	<form action="mod_user/prosesedit.php" method="POST">
+	<form action="mod_pegawai/prosesedit.php" method="POST">
 	<div class="col">
 			<label for="txt_nama">Nama</label>
 			<input type="text" name="txt_nama" id="txt_nama" onivalid = "this.setCustomValidity ('Nama Wajib Diisi')" 
@@ -62,7 +62,7 @@ if($_GET['aksi']== "ubah"){
 		</div>
 		<div class="col">
 			<label for="txt_pasw2">Ulangi Password</label>
-			<input type="password" name="pass_lama" id="txt_pasw2" onchange="" />
+			<input type="password" name="pass_lama" id="txt_pasw2"/>
 		</div>
 		<div class="col">
 			<button type="submit" id="btnsimpanuser">Simpan Data</button>

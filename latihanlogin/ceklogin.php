@@ -6,7 +6,7 @@
 		echo $usernya."<br>";
 		echo $passnya."<br>";
 	$query_login = mysqli_query($koneksidb, 
-						"select * from mst_user where BINARY username='".$usernya."' AND password='".$passnya."' AND is_active = 1 ");
+			"select * from mst_user where BINARY username='".$usernya."' AND password='".$passnya."' AND is_active = 1 ");
 	$cekhasil = mysqli_num_rows($query_login); //jumlah data yg ditemukan
 	$hasil =  mysqli_fetch_array($query_login); //variabel yg menampung hasil query
 	if($cekhasil > 0){

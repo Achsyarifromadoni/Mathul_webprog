@@ -15,7 +15,7 @@ else{
     $passwordnya = md5($txpassbaru);
 }
 
-$query_update = mysqli_query($koneksidb, "update mst_user set nama='".$txnama."', passwordd ='".$passwordnya."'
+$query_update = mysqli_query($koneksidb, "update mst_user set nama='".$txnama."', passwordd ='".$passwordnya."' 
 WHERE username = '".$txuser."' ")
 or die ("gagal update" .mysqli_error($koneksidb));
 

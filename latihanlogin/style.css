@@ -40,3 +40,14 @@ label {
   font-size: 16px;
   color: rgb(202, 9, 9);
 }
+.col-md{
+  width: 100px;
+  padding: 5px;
+}
+
+ button {
+  font-size: 14px;
+  padding: 7px;
+  display: block;
+  margin-left: 135px;
+ }
