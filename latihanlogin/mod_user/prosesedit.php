@@ -3,7 +3,7 @@
 //tanda .. / ini berarti harus keluar folder mod_user karena file ada diluar
 require_once("../koneksi_db.php");//
 $txuser = $_POST['txt_user'];//sesuai attribut nama pada  form
-$txpassbaru = ($_POST['txt_pasw']);
+$txpassbaru = ($_POST['txtpasw']);
 $txnamalama = $_POST['pass_lama'];
 $txnama = $_POST['txt_nama'];
 

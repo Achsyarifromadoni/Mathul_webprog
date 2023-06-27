@@ -1,11 +1,7 @@
-<?php 
-    if(!isset($_GET['aksi'])){
-    ?>
-
-    <?php
-    $qdata = mysqli_query($koneksidb, "select * from mst_pegawai")
-    or die("Tabel Tidak Ditemukan" .mysqli_error($koneksidb));
-    ?>
+<?php
+$qdata = mysqli_query($koneksidb, "SELECT a.* , nama_divisi FROM mst_pegawai AS a INNER JOIN mst_divisi AS b ON a.divisi = b.iddivisi")
+or die("Tabel Tidak Ditemukan" .mysqli_error($koneksidb));
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,35 +22,37 @@
         <th>Jenis Kelamin</th>
         <th>Divisi Jabatan</th>
         <th>Status</th>
+        <th>Foto</th>
         <th>Tanggal Masuk</th>
         <th>Action</th>
     </tr>
 
     <?php 
     $no = 1;
+    // $query_user = mysqli_query($koneksidb,"select * from mst_pegawai");
     while ($row = mysqli_fetch_array($qdata)){
-    // $tanggal = $row["tgl_masuk"];
-    // $tanggalbaru = date('d-m-Y', strtotime($tanggal));
+    $tanggal = $row["tgl_masuk"];
+    $tanggalbaru = date('d-m-Y', strtotime($tanggal));
     ?>
 
     <tr>
-        <td><?php echo "";?></td>
-        <td><?php echo "";?></td>
-        <td><?php echo "";?></td>
-        <td><?php echo "";?></td>
-        <td><?php echo "";?></td>
-        <td><?php echo "";?></td>
+        <td><?php echo $no++;?></td>
+        <td><?php echo $row["nama_peg"];?></td>
+        <td><?php echo $row["jk"];?></td>
+        <td><?php echo $row["divisi"];?></td>
+        <td><?php echo $row["status"];?></td>
+        <td><img src="filefoto/<?php echo $data['foto'];?>" width="200px" height="200px"></td>
+        <td><?php echo $row["tgl_masuk"];?></td>
         <td>
-            <a href="">Ubah</a>
-            <a href="">Hapus</a>
+            <a href="?modul=mod_pegawai&aksi=ubah&id=<?php  echo $data['idpegawai']; ?>">Ubah</a>
+            <a href="mod_pegawai/proses_delete.php?idpeg=<?php echo $data['idpegawai']; ?>">Hapus</a>
         </td>
     </tr>
 
-    <?php }?>
+    <?php } ?>
 
 </table>
 </div>
 
 </body>
 </html>
-<?php } ?>

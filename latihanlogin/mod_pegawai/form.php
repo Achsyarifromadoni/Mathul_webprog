@@ -4,23 +4,35 @@ if($_GET['aksi']== "tambah"){
 
 <div class="container">
 	<h2>Input Data</h2>
-	<form action="mod_user/prosesadd.php" method="POST">
+	<form action="mod_pegawai/prosesadd.php" method="POST" 
+	enctype= "mutipart/form-data">
+	
 	<div class="col-md">
 			<label for="txt_user">Nama Pegawai</label>
-			<input type="text" name="txt_nama" id="txt_nama" onivalid = "this.setCustomValidity('Nama Pegawai Wajib Diisi')" Required="true" oniput="setcustomvalidity" onchange=""/>
+			<input type="text" name="txt_nama" id="txt_nama" onivalid = "this.setCustomValidity('Nama Pegawai Wajib Diisi')"  oniput="setcustomvalidity" onchange=""/>
 			
 		</div>
 		<div class="col-md">
 			<label for="jk">Jenis Kelamin</label>
-			<input type="radio" name="opjk" value="Laki-Laki"/>
-            <input type="radio" name="opjk" value="Wanita"/>
+			<input type="radio" name="opjk" value="Laki-Laki"/>Laki-Laki
+            <input type="radio" name="opjk" value="Wanita"/>Perempuan
 			
 		</div>
 
         <div class="col-md">
 			<label for="tx_divisi">Divisi</label>
 			<select name="txdivisi" class="from-select">
-                <option value="">---Pilih Divisi---</option>
+
+			<option value="">---Pilih Divisi---</option>
+
+			<?php 
+			$qdivisi = mysqli_query($koneksidb, "select * from mst_divisi");
+			while($c = mysqli_fetch_array($qdivisi)){
+				echo '<option value="'.$c['iddivisi'].'">'.$c['nama_divisi'].'</option>';
+			}
+			?>
+
+                
             </select>
 			
 		</div>
@@ -30,9 +42,9 @@ if($_GET['aksi']== "tambah"){
 			<input type="text" name="txjabatan" id="txjabatan" />
 		</div>
 		<div class="col-md">
-			<label for="txt_pasw2">Status Pegawai</label>
-			<input type="checkbox" name="stkontrak" value="Kontrak"> <label>Kontrak</label>
-            <input type="checkbox" name="sttetap" value="Tetap"> <label>Tetap</label>
+			<label for="status">Status Pegawai</label>
+			<input type="checkbox" name="stkontrak" name="stkontrak" value="Kontrak"> <label>Kontrak</label>
+            <input type="checkbox" name="sttetap" name="sttetap" value="Tetap"> <label>Tetap</label>
 		</div>
 
         <div class="col-md">
@@ -51,46 +63,81 @@ if($_GET['aksi']== "tambah"){
 		</div>
 
 		<div class="col">
-			<button type="submit" class="button">Simpan Data</button>
+			<button type="submit" id="btn_simpanuser" class="button">Simpan Data</button>
 		</div>
 	</form>
 </div>
+
+
+
 <?php
-}
-?>
-<?php
-if($_GET['aksi']== "ubah"){
-	$usernya = $_GET['user'];
-	$query_getdata = mysqli_query($koneksidb, "select * from mst_user where username='".$usernya."'");
+}elseif($_GET['aksi']== "ubah"){
+	// variabel untuk menampung value dari variabel user yang dikirim lewat url
+	$idd = $_GET['idpegawai'];
+	// $query_getdata = mysqli_query($koneksidb, "SELECT a.*, nama_divisi FROM mst_pegawai AS a INNER JOIN mst_divisi AS b ON a.divisi = b.iddivisi where idpegawai = $id");
+	$query_getdata = mysqli_query($koneksidb, "select * from mst_pegawai where idpegawai= '".$idd."'");
 	$data = mysqli_fetch_array($query_getdata);
+	$divisi = $data["nama_divisi"];
 ?>
 
 <!-- ubah data -->
 <div class="container">
 	<h2>Ubah Data</h2>
-	<form action="mod_user/prosesedit.php" method="POST">
+	<form action="mod_pegawai/prosesedit.php" method="POST">
 	<div class="col">
-			<label for="txt_nama">Nama</label>
+			<label for="txt_nama">Nama Pegawai</label>
 			<input type="text" name="txt_nama" id="txt_nama" onivalid = "this.setCustomValidity ('Nama Wajib Diisi')" 
 			Required="true" oniput="setcustomvalidity" value="<?php echo $data['nama']; ?>"/>
 			
 
 		</div>
-		<div class="col">
-			<label for="txt_user">Username</label>
-			<input type="text" name="txt_user" id="txt_user" onivalid = "this.setCustomValidity('Username Wajib Diisi')" 
-			Required="true" oniput="setcustomvalidity" value="<?php echo $data['username']; ?>" readonly/>
-			
+		<div class="col-md">
+            <label for="jk">Jensi Kelamin</label>
+            <input type="radio" name="opjk" value="Laki-Laki">Laki-Laki
+            <input type="radio" name="opjk" value="Wanita">Wanita
+        </div>
+
+		<div class="col-md">
+            <label for="tx_divisi">Divisi</label>
+            <select name="tx_divisi" class="form-select">
+            <option value="">--Pilih Divisi--</option>
+                <?php
+                $qdivisi = mysqli_query($koneksi_db, "SELECT * FROM mst_divisi") or die;
+                while($c = mysqli_fetch_array($qdivisi)){
+                    if($c["nama_divisi"] == $divisi){
+                        { $pilih = "selected"; }
+                    }else{ $pilih=""; }
+                    echo '<option value="'.$c["iddivisi"].'"'.$pilih.'>'.$c['nama_divisi'].'</option>';
+                }
+                  ?>               
+            </select>
+        </div>
+
+		<div class="col-md">
+			<label for="txjabatan">Jabatan</label>
+			<input type="text" name="txjabatan" id="txjabatan" />
 		</div>
-		<div class="col">
-			<label for="txt_pasw">Ganti Password</label>
-			<input type="hidden" nama="pass_lama" value="<?php echo $data['password']; ?>">
-			<input type="password" name="txt_pasw" id="txt_pasw" />
+		<div class="col-md">
+			<label for="status">Status Pegawai</label>
+			<input type="checkbox" name="stkontrak" name="stkontrak" value="Kontrak"> <label>Kontrak</label>
+            <input type="checkbox" name="sttetap" name="sttetap" value="Tetap"> <label>Tetap</label>
 		</div>
-		<div class="col">
-			<label for="txt_pasw2">Ulangi Password</label>
-			<input type="password" name="pass_lama" id="txt_pasw2" onchange="" />
-		</div>
+
+		<div class="col-md">
+            <label for="txtgl">Tanggal Bergabung</label>
+            <input type="date" name="txtgl" id="txtgl" value="<?= $data["tgl_masuk"]?>">
+        </div>
+
+		<div class="col-md">
+            <label for="txalamat">Alamat</label>
+            <textarea name="txalamat" id="txalamat" cols="50" rows="3"><?= $data["alamat"]?></textarea>
+        </div>
+
+		<div class="col-md">
+            <label for="txfile">Upload Foto</label>
+            <input type="file" name="txfile" id="txfile">
+        </div>
+
 		<div class="col">
 			<button type="submit" id="btnsimpanuser">Simpan Data</button>
 		</div>
