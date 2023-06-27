@@ -1,145 +1,118 @@
 <?php
-if($_GET['aksi']== "tambah"){
+if($_GET['aksi'] == "tambah"){
 ?>
-
 <div class="container">
-	<h2>Input Data</h2>
-	<form action="mod_pegawai/prosesadd.php" method="POST" 
-	enctype= "mutipart/form-data">
-	
-	<div class="col-md">
-			<label for="txt_user">Nama Pegawai</label>
-			<input type="text" name="txt_nama" id="txt_nama" onivalid = "this.setCustomValidity('Nama Pegawai Wajib Diisi')"  oniput="setcustomvalidity" onchange=""/>
-			
-		</div>
-		<div class="col-md">
-			<label for="jk">Jenis Kelamin</label>
-			<input type="radio" name="opjk" value="Laki-Laki"/>Laki-Laki
-            <input type="radio" name="opjk" value="Wanita"/>Perempuan
-			
-		</div>
-
+<h3>Input Data</h3>
+<!-- action untuk mengarahkan ke file untuk  -->
+    <form action="mod_pegawai/proses_add.php" method="post" enctype="multipart/form-data">
         <div class="col-md">
-			<label for="tx_divisi">Divisi</label>
-			<select name="txdivisi" class="from-select">
-
-			<option value="">---Pilih Divisi---</option>
-
-			<?php 
-			$qdivisi = mysqli_query($koneksidb, "select * from mst_divisi");
-			while($c = mysqli_fetch_array($qdivisi)){
-				echo '<option value="'.$c['iddivisi'].'">'.$c['nama_divisi'].'</option>';
-			}
-			?>
-
-                
-            </select>
-			
-		</div>
-
-		<div class="col-md">
-			<label for="txjabatan">Jabatan</label>
-			<input type="text" name="txjabatan" id="txjabatan" />
-		</div>
-		<div class="col-md">
-			<label for="status">Status Pegawai</label>
-			<input type="checkbox" name="stkontrak" name="stkontrak" value="Kontrak"> <label>Kontrak</label>
-            <input type="checkbox" name="sttetap" name="sttetap" value="Tetap"> <label>Tetap</label>
-		</div>
-
-        <div class="col-md">
-			<label for="txtgl">Tanggal Bergabung</label>
-			<input type="date" name="txtgl" name="txtgl">
-		</div>
-
-        <div class="col-md">
-			<label for="txalamat">Alamat</label>
-			<textarea name="txalamat" id="txalamat" cols="50" rows="3"></textarea>
-		</div>
-
-        <div class="col-md">
-			<label for="txfile">Uplode Foto</label>
-			<input type="file" name="txfile" id="txfile">
-		</div>
-
-		<div class="col">
-			<button type="submit" id="btn_simpanuser" class="button">Simpan Data</button>
-		</div>
-	</form>
-</div>
-
-
-
-<?php
-}elseif($_GET['aksi']== "ubah"){
-	// variabel untuk menampung value dari variabel user yang dikirim lewat url
-	$idd = $_GET['idpegawai'];
-	// $query_getdata = mysqli_query($koneksidb, "SELECT a.*, nama_divisi FROM mst_pegawai AS a INNER JOIN mst_divisi AS b ON a.divisi = b.iddivisi where idpegawai = $id");
-	$query_getdata = mysqli_query($koneksidb, "select * from mst_pegawai where idpegawai= '".$idd."'");
-	$data = mysqli_fetch_array($query_getdata);
-	$divisi = $data["nama_divisi"];
-?>
-
-<!-- ubah data -->
-<div class="container">
-	<h2>Ubah Data</h2>
-	<form action="mod_pegawai/prosesedit.php" method="POST">
-	<div class="col">
-			<label for="txt_nama">Nama Pegawai</label>
-			<input type="text" name="txt_nama" id="txt_nama" onivalid = "this.setCustomValidity ('Nama Wajib Diisi')" 
-			Required="true" oniput="setcustomvalidity" value="<?php echo $data['nama']; ?>"/>
-			
-
-		</div>
-		<div class="col-md">
-            <label for="jk">Jensi Kelamin</label>
-            <input type="radio" name="opjk" value="Laki-Laki">Laki-Laki
-            <input type="radio" name="opjk" value="Wanita">Wanita
+            <label for="txt_user">Nama Pegawai</label>
+            <input type="text" id="txt_nama" name="txt_nama"
+            oninvalid="this.setCustomValidity('Nama Wajib Diisi!!')" required="true" oninput="setCustomValidity('')">
         </div>
-
-		<div class="col-md">
-            <label for="tx_divisi">Divisi</label>
+        <div class="col-md">
+            <label for="jk">Jenis Kelamin</label>
+            <input type="radio" name="op_jk" value="wanita"> Wanita
+            <input type="radio" name="op_jk" value="pria"> Pria
+        </div>
+        <div class="col-md">
+            <label for="tx_divisi">Divisi Jabatan</label>
             <select name="tx_divisi" class="form-select">
-            <option value="">--Pilih Divisi--</option>
+                <option value="">-- Pilih Divisi</option>
                 <?php
-                $qdivisi = mysqli_query($koneksi_db, "SELECT * FROM mst_divisi") or die;
-                while($c = mysqli_fetch_array($qdivisi)){
-                    if($c["nama_divisi"] == $divisi){
-                        { $pilih = "selected"; }
-                    }else{ $pilih=""; }
-                    echo '<option value="'.$c["iddivisi"].'"'.$pilih.'>'.$c['nama_divisi'].'</option>';
-                }
-                  ?>               
-            </select>
+                    $qdivisi = mysqli_query($koneksidb, "select * from mst_divisi");
+                    while($c = mysqli_fetch_array($qdivisi)){
+                        echo "<option value=".$c['iddivisi'].">".$c['nama_divisi']."</option> ";
+                    }
+                ?>
+            </select>             
         </div>
-
-		<div class="col-md">
-			<label for="txjabatan">Jabatan</label>
-			<input type="text" name="txjabatan" id="txjabatan" />
-		</div>
-		<div class="col-md">
-			<label for="status">Status Pegawai</label>
-			<input type="checkbox" name="stkontrak" name="stkontrak" value="Kontrak"> <label>Kontrak</label>
-            <input type="checkbox" name="sttetap" name="sttetap" value="Tetap"> <label>Tetap</label>
-		</div>
-
-		<div class="col-md">
-            <label for="txtgl">Tanggal Bergabung</label>
-            <input type="date" name="txtgl" id="txtgl" value="<?= $data["tgl_masuk"]?>">
+        <div class="col-md">
+            <label for="tx_jabatan">Jabatan</label>
+            <input type="text" id="tx_jabatan" name="tx_jabatan">
         </div>
-
-		<div class="col-md">
-            <label for="txalamat">Alamat</label>
-            <textarea name="txalamat" id="txalamat" cols="50" rows="3"><?= $data["alamat"]?></textarea>
+        <div class="col-md">
+            <label for="status">Status Pegawai</label>
+            <input type="checkbox" name="st_kontrak" name="kontrak"> Kontrak
+            <input type="checkbox" name="st_kontrak" name="tetap"> Tetap
         </div>
-
-		<div class="col-md">
-            <label for="txfile">Upload Foto</label>
-            <input type="file" name="txfile" id="txfile">
+        <div class="col-md">
+            <label for="tx_tgl">Tanggal Bergabung</label>
+            <input type="date" id="tx_tgl" name="tx_tgl"> 
         </div>
-
-		<div class="col">
-			<button type="submit" id="btnsimpanuser">Simpan Data</button>
-		</div>
-
-<?php } ?>
+        <div class="col-md">
+            <label for="tx_alamat">Alamat</label>
+            <textarea id="tx_alamat" name="tx_alamat" cols="50" rows="3"></textarea> 
+        </div>
+        <div class="col-md">
+            <label for="tx_file">Upload Foto</label>
+            <input type="file" id="tx_file" name="tx_file"> 
+        </div>
+        <div class="col-md">
+            <button class="button" type="submit" id="btn_simpanuser" name="btn_login">Simpan data</button>
+        </div>
+    </form>
+</div>
+<?php
+    }elseif($_GET['aksi'] == "ubah"){
+        // variabel untuk menampung value dari variabel user yang dikirim lewat url
+        $usernya = $_GET['user'];
+        $query_getdata = mysqli_query($koneksidb, "select * from mst_pegawai where idpegawai= '".$usernya."'");
+        $data = mysqli_fetch_array($query_getdata);
+?>
+<div class="container">
+<h3>Input Data</h3>
+<!-- action untuk mengarahkan ke file untuk  -->
+    <form action="mod_pegawai/proses_edit.php" method="post">
+        <div class="col-md">
+            <label for="txt_user">Nama Pegawai</label>
+            <input type="text" id="txt_nama" name="txt_nama">
+        </div>
+        <div class="col-md">
+            <label for="jk">Jenis Kelamin</label>
+            <input type="radio" name="op_jk"> Perempuan
+            <input type="radio" name="op_jk"> Laki - Laki
+        </div>
+        <div class="col-md">
+            <label for="txt_divisi">Divisi Jabatan</label>
+            <select name="tx_divisi" class="form-select">
+                <option value="">-- Pilih Divisi</option>
+                <option value="1">IT</option>
+                <option value="2">Accounting</option>
+                <option value="3">HRD</option>
+                <option value="4">Direksi</option>
+            </select>             
+        </div>
+        <div class="col-md">
+            <label for="tx_jabatan">Jabatan</label>
+            <input type="text" id="tx_jabatan" name="tx_jabatan">
+        </div>
+        <div class="col-md">
+            <label for="status">Status Pegawai</label>
+            <input type="checkbox" id="st_kontrak" name="kontrak"> Kontrak
+            <input type="checkbox" id="st_tetap" name="tetap"> Tetap
+        </div>
+        <div class="col-md">
+            <label for="status">Tanggal Bergabung</label>
+            <input type="date" id="tx_tgl" name="tx_tgl"> 
+        </div>
+        <div class="col-md">
+            <label for="tx_tgl">Tanggal Bergabung</label>
+            <input type="date" id="tx_tgl" name="tx_tgl"> 
+        </div>
+        <div class="col-md">
+            <label for="tx_alamat">Alamat</label>
+            <textarea id="tx_alamat" name="tx_alamat" cols="50" rows="3"></textarea> 
+        </div>
+        <div class="col-md">
+            <label for="tx_file">Upload Foto</label>
+            <input type="file" id="tx_file" name="tx_file"> 
+        </div>
+        <div class="col-md">
+            <button class="button" type="submit" id="btn_simpanuser" name="btn_login">Simpan data</button>
+        </div>
+    </form>
+</div>
+<?php 
+}
+?>
