@@ -34,14 +34,13 @@ or die("Tabel Tidak Ditemukan" .mysqli_error($koneksidb));
         <td><?php echo $row['jk'];?></td>
         <td><?php echo $row['nama_divisi'].",".$row['jabatan'];?></td>
         <td><?php echo $row['status'];?></td>
-        <td><img src="filefoto/<?php echo $data['foto'];?>" width="50px" height="50px"></td>
+        <td><img src="filefoto/<?php echo $row['foto'];?>" width="50px" height="50px"></td>
         <td><?php echo $row['tgl_masuk'];?></td>
         <td><?php echo $row['alamat'];?></td>
         <td>
-            <a href="?modul=mod_pegawai&aksi=ubah&id=       <?php echo $data['idpegawai']; ?>">Ubah</a>
-            <a href="mod_pegawai/prosesdelete.php?idpegawai=<?php echo $data['idpegawai']; ?>">Hapus</a>
+            <a href="?modul=mod_pegawai&aksi=ubah&idpegawai=<?= $row["idpegawai"]?>">Ubah</a>
+            <a href="mod_pegawai/prosesdelete.php?idpegawai=<?= $row['idpegawai']; ?>">Hapus</a>
         </td>
-    </tr>
 
     <?php } ?>
 

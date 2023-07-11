@@ -2,6 +2,7 @@
 //ini untuk menyisipkan file koneksi,
 //tanda .. / ini berarti harus keluar folder mod_user karena file ada diluar
 require_once("../koneksi_db.php");
+// $idpegawai = $_POST['idpegawai'];
 $nama = $_POST['txt_nama']; //sesuai attribut nama pada  form
 $divisi = $_POST['txdivisi'];
 $jabatan = $_POST['txjabatan'];
@@ -25,16 +26,17 @@ if(isset($_POST['sttetap'])){
 }
 //start-proses uploud gambar
 $file = $_FILES['txfile']; //name dari uplode foto input
-// var_dump($file); 
+var_dump($file); 
 //ini untuk menampilkan output bentuk array
 echo "<hr>";
 //tentukan folder lokasi direktori penyimpanan file
 $target_folder = "../filefoto"; //
 //ini cara lain $_FILES['txfile']['name'];
-echo "<br>";
-echo $file['name'];
+echo "<hr>";
+echo $file['name'].
+"<hr>";
 $target_file = $target_folder.$file['name'];
-echo $target_file. "<br>";
+// echo $target_file. "<br>";
 //untuk mendapatkan tipe file yang di uploud
 $type_file = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 echo $type_file. "<br>";
@@ -82,6 +84,22 @@ if($boleh_uploud == 1){
 
 //end-proses uplod gambar
 
+
+// //ini untuk mengecek jumlah data dari hasil query sebelumnya
+// $cekdata = mysqli_num_rows($query_cekdata);
+// if($cekdata > 0){
+//     echo "Username Sudah Ada, Silahkan Input Kembali";
+// }
+
+$cekdata = mysqli_query($koneksidb, "INSERT INTO 
+mst_pegawai(nama_peg, divisi, jabatan, tgl_masuk, status, alamat, jk, foto) values 
+('".$nama."','".$divisi."','".$jabatan."','".$tanggsal."','".$status."','".$alamat."','".$tanggsal."','".$jk."','".$ceknamafile."')");
+
+if($cekdata){
+    notif ("Username sudah ada");
+//proses menyimpan ke tabel
+}
+
 function notif($pesan){
     echo '<script language="Javascript"';
     echo 'alert("'.$pesan.'")';
@@ -89,21 +107,7 @@ function notif($pesan){
     //<meta http-equiv="refresh" content="0; url=">';
     echo '<meta http-equiv="refresh" content="0; url=http://localhost/Mathul_webprog/latihanlogin/home.php?modul=mod_pegawai">';
 }
-// //ini untuk mengecek jumlah data dari hasil query sebelumnya
-// $cekdata = mysqli_num_rows($query_cekdata);
-// if($cekdata > 0){
-//     echo "Username Sudah Ada, Silahkan Input Kembali";
-// }
 
-$query_cekdata = mysqli_query($koneksidb,"select * from mst_pegawai where idpegawai='".$idd."'");
-if($cekdata > 0){
-    echo "Username sudah ada";
-//proses menyimpan ke tabel
-}else{$query_simpan = mysqli_query($koneksidb, "INSERT INTO 
-mst_pegawai(nama_peg, divisi, jabatan, tgl_masuk, status, alamat, jk, foto) values 
-('".$nama."','".$divisi."','".$jabatan."','".$tanggsal."','".$status."','".$alamat."','".$tanggsal."','".$jk."','".$ceknamafile."')")
-or die("Gagal Simpan" .mysqli_error($koneksidb));
-}
     
    
     

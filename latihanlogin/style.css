@@ -41,7 +41,7 @@ label {
   color: rgb(202, 9, 9);
 }
 .col-md{
-  width: 100px;
+  width: 100%;
   padding: 5px;
 }
 
@@ -50,4 +50,8 @@ label {
   padding: 7px;
   display: block;
   margin-left: 135px;
+ }
+
+ .form-select {
+  padding: 7px;
  }
